@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
     static double gallon = 0;
     static int flush, dish, wash;
     static double shower, sink, hose, sprink;
+    static double[] amounts = new double[7];
 
     static ProgressBar waterProgressBar;
 
@@ -57,16 +58,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void calculateTotal() {
-        gallon += flush * 1.6;
-        gallon += shower * 2.1;
-        gallon += sink * 2.2;
-        gallon += dish * 4;
-        gallon += wash * 15;
-        gallon += hose * 12;
-        gallon += sprink * 4;
+        gallon += amounts[0] * 1.6;
+        gallon += amounts[1]  * 2.1;
+        gallon += amounts[2]  * 2.2;
+        gallon += amounts[3]  * 4;
+        gallon += amounts[4]  * 15;
+        gallon += amounts[5]  * 12;
+        gallon += amounts[6]  * 4;
     }
 
-    public void getFlush(View v) {
-
-    }
 }
