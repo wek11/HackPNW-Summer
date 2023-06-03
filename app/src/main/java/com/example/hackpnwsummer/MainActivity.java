@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
     static double gallon = 0;
 
     static int flush, dish, wash;
-    static boolean shower, sink, hose, sprink;
+    static double shower, sink, hose, sprink;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
