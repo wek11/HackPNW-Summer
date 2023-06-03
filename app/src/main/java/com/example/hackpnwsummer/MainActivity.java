@@ -15,18 +15,31 @@ public class MainActivity extends AppCompatActivity {
     static int progress = 0;
     static int goal = 100;
     static double gallon = 0;
+    static int flush, shower, sink, dish, wash, hose, sprink;
 
-    static int flush, dish, wash;
-    static double shower, sink, hose, sprink;
+    static ProgressBar waterProgressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        String test;
+        
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        waterProgressBar = findViewById(R.id.waterProgressBar);
         Button buttonGoal = findViewById(R.id.setGoalButton);
-
+        Thread thread = new Thread(new Runnable(){
+            public void run(){
+                while(true){
+                    MainActivity.waterProgressBar.setProgress(progress);
+                    MainActivity.progress = (int)(MainActivity.gallon / ((double)MainActivity.goal) * 100);
+                    try {
+                        Thread.sleep(5000);
+                    } catch (InterruptedException e){
+                        e.printStackTrace();
+                    }
+                }
+            }
+        });
+        thread.start();
     }
     public void goalClick(View v){
         try {
