@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -21,14 +22,18 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Button buttonGoal = findViewById(R.id.setGoalButton);
-        buttonGoal.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v){
-                TextView goal = findViewById(R.id.goalTextView);
-                EditText setGoal = findViewById(R.id.goalEditText);
-                goal.setText(setGoal.getText().toString() + " gallons");
-                MainActivity.goal = Integer.parseInt(setGoal.getText().toString());
-            }
-        });
+
+    }
+    public void goalClick(View v){
+        try {
+            EditText setGoal = findViewById(R.id.goalEditText);
+            MainActivity.goal = Integer.parseInt(setGoal.getText().toString());
+            TextView goal = findViewById(R.id.goalTextView);
+
+            goal.setText("Goal: " + setGoal.getText().toString() + " gallons");
+
+        } catch(NumberFormatException e) {
+            Toast.makeText(this, "Invalid Goal", Toast.LENGTH_SHORT).show();
+        }
     }
 }
