@@ -14,7 +14,9 @@ public class MainActivity extends AppCompatActivity {
 
     static int progress = 0;
     static int goal = 100;
+    static double gallon = 0;
 
+    static int flush, shower, sink, dish, wash, hose, sprink;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,5 +38,15 @@ public class MainActivity extends AppCompatActivity {
         } catch(NumberFormatException e) {
             Toast.makeText(this, "Invalid Goal", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    public void calculateTotal() {
+        gallon += flush * 1.6;
+        gallon += shower * 2.1;
+        gallon += sink * 2.2;
+        gallon += dish * 4;
+        gallon += wash * 15;
+        gallon += hose * 12;
+        gallon += sprink * 4;
     }
 }
