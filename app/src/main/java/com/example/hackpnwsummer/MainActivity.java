@@ -29,9 +29,10 @@ public class MainActivity extends AppCompatActivity {
         Button buttonGoal = findViewById(R.id.setGoalButton);
         Thread thread = new Thread(new Runnable(){
             public void run(){
-                while(true){
+                while(gallon<=goal){
                     MainActivity.progress = (int)(MainActivity.gallon / ((double)MainActivity.goal) * 100);
                     MainActivity.waterProgressBar.setProgress(progress);
+
                     try {
                         Thread.sleep(5000);
                     } catch (InterruptedException e){
