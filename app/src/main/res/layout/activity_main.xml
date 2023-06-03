@@ -9,10 +9,45 @@
     <ProgressBar
         android:id="@+id/waterProgressBar"
         style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="339dp"
-        android:layout_height="100dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="50dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/goalTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="128dp"
+        android:text="Set Goal"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/waterProgressBar"
+        app:layout_constraintEnd_toEndOf="@+id/waterProgressBar"
+        app:layout_constraintStart_toStartOf="@+id/waterProgressBar" />
+
+    <Button
+        android:id="@+id/setGoalButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="SET GOAL"
+        app:layout_constraintBottom_toTopOf="@+id/waterProgressBar"
+        app:layout_constraintEnd_toEndOf="@+id/goalTextView"
+        app:layout_constraintStart_toStartOf="@+id/goalTextView" />
+
+    <EditText
+        android:id="@+id/goalEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Goal: 100 gallons"
+        android:inputType="text"
+        app:layout_constraintBottom_toTopOf="@+id/setGoalButton"
+        app:layout_constraintEnd_toEndOf="@+id/setGoalButton"
+        app:layout_constraintStart_toStartOf="@+id/setGoalButton"
+        app:layout_constraintTop_toBottomOf="@+id/goalTextView" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
