@@ -15,13 +15,14 @@ public class MainActivity extends AppCompatActivity {
     static int progress = 0;
     static int goal = 100;
     static double gallon = 0;
-    static int flush, shower, sink, dish, wash, hose, sprink;
+    static int flush, dish, wash;
+    static double shower, sink, hose, sprink;
 
     static ProgressBar waterProgressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         waterProgressBar = findViewById(R.id.waterProgressBar);
@@ -29,8 +30,8 @@ public class MainActivity extends AppCompatActivity {
         Thread thread = new Thread(new Runnable(){
             public void run(){
                 while(true){
-                    MainActivity.waterProgressBar.setProgress(progress);
                     MainActivity.progress = (int)(MainActivity.gallon / ((double)MainActivity.goal) * 100);
+                    MainActivity.waterProgressBar.setProgress(progress);
                     try {
                         Thread.sleep(5000);
                     } catch (InterruptedException e){
