@@ -65,4 +65,8 @@ public class MainActivity extends AppCompatActivity {
         gallon += hose * 12;
         gallon += sprink * 4;
     }
+
+    public void getFlush(View v) {
+
+    }
 }
