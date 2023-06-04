@@ -2,7 +2,10 @@ package com.example.hackpnwsummer;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class ListActivity extends AppCompatActivity {
@@ -32,7 +35,14 @@ public class ListActivity extends AppCompatActivity {
         // Gallons for time time sprinkler was on
         TextView timeSprinklerWasOn = findViewById(R.id.timeSprinklerWasOn);
         timeSprinklerWasOn.setText("Sprinkler: " + (MainActivity.amounts[6] * 4) + " Gallons");
-
+        Button backButton = findViewById(R.id.backButton2);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ListActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
 
     }
 
