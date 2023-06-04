@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         gallonOverGoal = findViewById(R.id.goalTextView);
         initVal();
         calculateTotal();
-        System.out.println(gallon);
+        gallonOverGoal.setText(gallon + " / " + goal + " Gallons");
         TextView moneySaved = findViewById(R.id.moneySaved);
         double moneySavedNum = ((gallon*30.0/748)*22);
         String moneySavedString = moneySavedNum + "";
@@ -57,16 +57,14 @@ public class MainActivity extends AppCompatActivity {
         // Puts the progress bar
         MainActivity.progress = (int)(MainActivity.gallon / ((double)MainActivity.goal) * 100);
         MainActivity.waterProgressBar.setProgress(progress);
-        // This thread constantly updates the progress bar and money saved as gallons of water used
-        // increases, updating every 5 seconds to save resources while also maintaining up to date info
-        gallonOverGoal.setText(gallon + " / " + goal + " Gallons");
-        activityButton.setOnClickListener(new View.OnClickListener(){
+
+        activityButton.setOnClickListener(new View.OnClickListener(){ // Changes the page to the next page, which is where the user enters their water usage
             public void onClick(View v){
                 Intent intent = new Intent(MainActivity.this, AddWaterActivity2.class);
                 startActivity(intent);
             }
         });
-        listButton.setOnClickListener(new View.OnClickListener(){
+        listButton.setOnClickListener(new View.OnClickListener(){ //
             public void onClick(View v){
                 Intent intent = new Intent(MainActivity.this, ListActivity.class);
                 startActivity(intent);
@@ -102,7 +100,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        Toast.makeText(this, gallon + "", Toast.LENGTH_SHORT);
     }
 
 
@@ -124,6 +121,7 @@ public class MainActivity extends AppCompatActivity {
         gallon += amounts[6]  * gallonPer[6];
         gallon = Double.parseDouble((gallon + "").substring(0, 3));
     }
+    // Saves the values inputed by the user
     public void save() {
         sp = getSharedPreferences("UserData", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sp.edit();
@@ -137,7 +135,7 @@ public class MainActivity extends AppCompatActivity {
         editor.putInt("goal", goal);
         editor.commit();
     }
-
+    // Loads the values from the save file the user created
     public void load() {
         sp = getSharedPreferences("UserData", Context.MODE_PRIVATE);
         amounts[0] = Double.parseDouble(sp.getString("flush", "0"));
@@ -149,26 +147,32 @@ public class MainActivity extends AppCompatActivity {
         amounts[6] = Double.parseDouble(sp.getString("sprink", "0"));
         goal = sp.getInt("goal", 100);
     }
-
     @Override
     protected void onStop() {
         super.onStop();
         save();
     }
-
+    // converts values inputed by the user to amount of gallons
     public void initVal(){
+        // flush
         if(gallonPer[0] != 0.0) {
             gallonPer[0] = 1.6;
+        // dish
         } else if(gallonPer[1] != 0.0) {
             gallonPer[1] = 4.0;
+        // wash
         } else if(gallonPer[2] != 0.0) {
             gallonPer[2] = 15.0;
+        // shower
         } else if(gallonPer[3] != 0.0){
             gallonPer[3] = 2.1;
+        // sink
         } else if(gallonPer[4] != 0.0){
             gallonPer[4] = 2.2;
+        // hose
         } else if(gallonPer[5] != 0.0){
             gallonPer[5] = 12.0;
+        // sprink
         } else if(gallonPer[6] != 0.0){
             gallonPer[6] = 3.5;
         }

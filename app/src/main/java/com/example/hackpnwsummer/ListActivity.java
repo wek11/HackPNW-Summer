@@ -37,6 +37,8 @@ public class ListActivity extends AppCompatActivity {
         timeSprinklerWasOn.setText("Sprinkler: " + (MainActivity.amounts[6] * 4) + " Gallons");
         Button backButton = findViewById(R.id.backButton2);
         backButton.setOnClickListener(new View.OnClickListener() {
+
+            //
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ListActivity.this, MainActivity.class);
