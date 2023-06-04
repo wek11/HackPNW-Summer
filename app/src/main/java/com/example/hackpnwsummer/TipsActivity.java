@@ -15,11 +15,23 @@ public class TipsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tips);
 
-        Button button = (Button)findViewById(R.id.donateButton);
+        Button donateButton = findViewById(R.id.donateButton);
+        Button tipsButton = findViewById(R.id.TipsButton);
 
-        button.setOnClickListener(new View.OnClickListener() {
+        // Donate button
+        donateButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
-                Intent viewIntent = new Intent("android.intent.action.VIEW", Uri.parse("http://www.stackoverflow.com/"));
+                // redirects to a charity page
+                Intent viewIntent = new Intent("android.intent.action.VIEW", Uri.parse("https://www.purewaterfortheworld.org/"));
+                startActivity(viewIntent);
+            }
+        });
+
+        // tips button
+        tipsButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View arg0) {
+                // redirects to a tips for saving water page
+                Intent viewIntent = new Intent("android.intent.action.VIEW", Uri.parse("https://portal.ct.gov/DEEP/Water/Water-Quantity/Tips-for-Conserving-Water"));
                 startActivity(viewIntent);
             }
         });
