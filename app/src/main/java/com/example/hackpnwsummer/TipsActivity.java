@@ -31,7 +31,7 @@ public class TipsActivity extends AppCompatActivity {
         tipsButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
                 // redirects to a tips for saving water page
-                Intent viewIntent = new Intent("android.intent.action.VIEW", Uri.parse("https://portal.ct.gov/DEEP/Water/Water-Quantity/Tips-for-Conserving-Water"));
+                Intent viewIntent = new Intent("android.intent.action.VIEW", Uri.parse("https://ecology.wa.gov/Issues-and-local-projects/Education-training/What-you-can-do/Water-conservation"));
                 startActivity(viewIntent);
             }
         });
