@@ -36,6 +36,7 @@ public class TipsActivity extends AppCompatActivity {
             }
         });
         Button backButton = findViewById(R.id.bootyCheeks);
+        // exits the tips page
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
