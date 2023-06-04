@@ -9,7 +9,7 @@
     <EditText
         android:id="@+id/washingMachineLoads"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:layout_marginTop="30dp"
         android:ems="10"
         android:hint="Washing machine loads"
@@ -22,7 +22,7 @@
     <EditText
         android:id="@+id/showerTime"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:layout_marginTop="30dp"
         android:ems="10"
         android:hint="Time in shower (minutes)"
@@ -34,8 +34,8 @@
 
     <EditText
         android:id="@+id/sinkTime"
-        android:layout_width="230dp"
-        android:layout_height="42dp"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
         android:layout_marginTop="30dp"
         android:ems="10"
         android:hint="Time faucet is on (minutes)"
@@ -47,8 +47,8 @@
 
     <EditText
         android:id="@+id/gardenhoseTime"
-        android:layout_width="278dp"
-        android:layout_height="41dp"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
         android:layout_marginTop="30dp"
         android:ems="10"
         android:hint="Time garden hose is on (minutes)"
@@ -85,7 +85,7 @@
     <EditText
         android:id="@+id/toiletFlushAmt"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:layout_marginTop="30dp"
         android:ems="10"
         android:hint="Toilet Flushes"
@@ -97,7 +97,7 @@
     <EditText
         android:id="@+id/dishwasherAmt"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:layout_marginTop="30dp"
         android:ems="10"
         android:hint="Dishwasher loads"
@@ -120,5 +120,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/sprinklerTime"
         android:onClick="buttonSave"/>
+
+    <Button
+        android:id="@+id/backButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="72dp"
+        android:layout_marginBottom="0dp"
+        android:text="Back"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/saveButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

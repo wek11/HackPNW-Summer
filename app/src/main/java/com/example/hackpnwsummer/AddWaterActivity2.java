@@ -2,6 +2,7 @@ package com.example.hackpnwsummer;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -16,6 +17,15 @@ public class AddWaterActivity2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_water2);
         Button button = findViewById(R.id.saveButton);
+        Button backButton = findViewById(R.id.backButton);
+        backButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                MainActivity.gallonOverGoal.setText(MainActivity.gallon + " / " + MainActivity.goal + " Gallons");
+                Intent intent = new Intent(AddWaterActivity2.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     static double[] amounts = new double[7];
 
     static ProgressBar waterProgressBar;
+    static TextView gallonOverGoal;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,14 +33,20 @@ public class MainActivity extends AppCompatActivity {
         Button buttonGoal = findViewById(R.id.setGoalButton);
         Button activityButton = findViewById(R.id.activityButton);
         Button listButton = findViewById(R.id.activityButton2);
+        gallonOverGoal = findViewById(R.id.goalTextView);
+        Toast.makeText(this, progress + "", Toast.LENGTH_SHORT);
+        gallonOverGoal.setText(gallon + " / " + goal + " Gallons");
         // This thread constantly updates the progress bar and money saved as gallons of water used
         // increases, updating every 5 seconds to save resources while also maintaining up to date info
         Thread thread = new Thread(new Runnable(){
             public void run(){
                 TextView moneySaved = findViewById(R.id.moneySaved);
                 while(true){
+                    MainActivity.calculateTotal();
+                    System.out.println(progress);
                     MainActivity.progress = (int)(MainActivity.gallon / ((double)MainActivity.goal) * 100);
                     MainActivity.waterProgressBar.setProgress(progress);
+
                     double moneySavedNum = ((100.0*30/748)*22) - ((gallon*30.0/748)*22);
                     String moneySavedString = moneySavedNum + "";
                     try {
@@ -57,6 +64,12 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(intent);
             }
         });
+        listButton.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                Intent intent = new Intent(MainActivity.this, ListActivity.class);
+                startActivity(intent);
+            }
+        });
     }
     public void goalClick(View v){
         try {
@@ -71,7 +84,8 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void calculateTotal() {
+    public static void calculateTotal() {
+        gallon = 0;
         // flush
         gallon += amounts[0] * 1.6;
         // dish
