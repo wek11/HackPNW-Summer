@@ -15,8 +15,8 @@ public class MainActivity extends AppCompatActivity {
     static int progress = 0;
     static int goal = 100;
     static double gallon = 0;
-    static int flush, dish, wash;
-    static double shower, sink, hose, sprink;
+
+    // [flush, dish, wash, shower, sink, hose, sprink]
     static double[] amounts = new double[7];
 
     static ProgressBar waterProgressBar;
@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         waterProgressBar = findViewById(R.id.waterProgressBar);
         Button buttonGoal = findViewById(R.id.setGoalButton);
         Thread thread = new Thread(new Runnable(){
