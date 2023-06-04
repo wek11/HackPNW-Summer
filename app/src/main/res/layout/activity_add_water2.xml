@@ -111,7 +111,7 @@
     <Button
         android:id="@+id/saveButton"
         android:layout_width="120dp"
-        android:layout_height="68dp"
+        android:layout_height="60dp"
         android:scaleX="1.25"
         android:scaleY="1.25"
         android:text="SAVE"
@@ -132,4 +132,77 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/saveButton" />
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        app:layout_constraintBottom_toBottomOf="@+id/toiletFlushAmt"
+        app:layout_constraintEnd_toStartOf="@+id/toiletFlushAmt"
+        app:layout_constraintHorizontal_bias="0.529"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/toiletFlushAmt"
+        app:srcCompat="@drawable/toilet" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        app:layout_constraintBottom_toBottomOf="@+id/dishwasherAmt"
+        app:layout_constraintEnd_toStartOf="@+id/dishwasherAmt"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/dishwasherAmt"
+        app:srcCompat="@drawable/dishwasher" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        app:layout_constraintBottom_toBottomOf="@+id/washingMachineLoads"
+        app:layout_constraintEnd_toStartOf="@+id/washingMachineLoads"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/washingMachineLoads"
+        app:srcCompat="@drawable/washingmachine" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        app:layout_constraintBottom_toBottomOf="@+id/showerTime"
+        app:layout_constraintEnd_toStartOf="@+id/showerTime"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/showerTime"
+        app:srcCompat="@drawable/showerhead" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        app:layout_constraintBottom_toBottomOf="@+id/sinkTime"
+        app:layout_constraintEnd_toStartOf="@+id/sinkTime"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/sinkTime"
+        app:srcCompat="@drawable/sink" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        app:layout_constraintBottom_toBottomOf="@+id/gardenhoseTime"
+        app:layout_constraintEnd_toStartOf="@+id/gardenhoseTime"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/gardenhoseTime"
+        app:srcCompat="@drawable/gardenhose" />
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        app:layout_constraintBottom_toBottomOf="@+id/sprinklerTime"
+        app:layout_constraintEnd_toStartOf="@+id/sprinklerTime"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/sprinklerTime"
+        app:srcCompat="@drawable/sprinkler" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+
