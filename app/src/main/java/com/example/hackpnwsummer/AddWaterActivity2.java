@@ -22,7 +22,6 @@ public class AddWaterActivity2 extends AppCompatActivity {
         backButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                MainActivity.gallonOverGoal.setText(MainActivity.gallon + " / " + MainActivity.goal + " Gallons");
                 Intent intent = new Intent(AddWaterActivity2.this, MainActivity.class);
                 startActivity(intent);
             }
