@@ -10,10 +10,13 @@
         android:id="@+id/donateButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="600dp"
+        android:layout_marginBottom="30dp"
         android:scaleX="1.25"
         android:scaleY="1.25"
         android:text="DONATE!"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="614dp" />
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
