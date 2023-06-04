@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
             }
         }
         MainActivity.calculateTotal();
-        System.out.println(progress);
+        // Puts the progress bar
         MainActivity.progress = (int)(MainActivity.gallon / ((double)MainActivity.goal) * 100);
         MainActivity.waterProgressBar.setProgress(progress);
         // This thread constantly updates the progress bar and money saved as gallons of water used
@@ -82,7 +82,8 @@ public class MainActivity extends AppCompatActivity {
 
                     goal = Integer.parseInt(setGoal.getText().toString());
 
-
+                    MainActivity.progress = (int)(MainActivity.gallon / ((double)MainActivity.goal) * 100);
+                    MainActivity.waterProgressBar.setProgress(progress);
                     gallonOverGoal.setText(MainActivity.gallon + " / " + MainActivity.goal + " Gallons");
 
                 } catch (NumberFormatException e) {
