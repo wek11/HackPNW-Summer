@@ -57,15 +57,14 @@ public class MainActivity extends AppCompatActivity {
         // Puts the progress bar
         MainActivity.progress = (int)(MainActivity.gallon / ((double)MainActivity.goal) * 100);
         MainActivity.waterProgressBar.setProgress(progress);
-        // This thread constantly updates the progress bar and money saved as gallons of water used
-        // increases, updating every 5 seconds to save resources while also maintaining up to date info
-        activityButton.setOnClickListener(new View.OnClickListener(){
+
+        activityButton.setOnClickListener(new View.OnClickListener(){ // Changes the page to the next page, which is where the user enters their water usage
             public void onClick(View v){
                 Intent intent = new Intent(MainActivity.this, AddWaterActivity2.class);
                 startActivity(intent);
             }
         });
-        listButton.setOnClickListener(new View.OnClickListener(){
+        listButton.setOnClickListener(new View.OnClickListener(){ //
             public void onClick(View v){
                 Intent intent = new Intent(MainActivity.this, ListActivity.class);
                 startActivity(intent);
