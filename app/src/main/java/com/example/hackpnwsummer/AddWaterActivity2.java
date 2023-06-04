@@ -18,6 +18,7 @@ public class AddWaterActivity2 extends AppCompatActivity {
         setContentView(R.layout.activity_add_water2);
         Button button = findViewById(R.id.saveButton);
         Button backButton = findViewById(R.id.backButton);
+        setValue();
         backButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
@@ -65,7 +66,32 @@ public class AddWaterActivity2 extends AppCompatActivity {
                 for (int i = 0; i < MainActivity.amounts.length; i++) {
                     MainActivity.amounts[i] = Double.parseDouble(texts.get(i).getText().toString());
                 }
+
             }
+
         });
+    }
+    public void setValue(){
+        EditText flushes = findViewById(R.id.toiletFlushAmt);
+        EditText dishwasher = findViewById(R.id.dishwasherAmt);
+        EditText washingMachine = findViewById(R.id.washingMachineLoads);
+        EditText shower = findViewById(R.id.showerTime);
+        EditText faucet = findViewById(R.id.sinkTime);
+        EditText hose = findViewById(R.id.gardenhoseTime);
+        EditText sprinkler = findViewById(R.id.sprinklerTime);
+
+        ArrayList<EditText> texts = new ArrayList<EditText>();
+        texts.add(flushes);
+        texts.add(dishwasher);
+        texts.add(washingMachine);
+        texts.add(shower);
+        texts.add(faucet);
+        texts.add(hose);
+        texts.add(sprinkler);
+        for(int i = 0; i < texts.size(); i++){
+            if(MainActivity.amounts[i] != 0){
+                texts.get(i).setHint(texts.get(i).getHint().toString() + ": " + MainActivity.amounts[i] + "gallons");
+            }
+        }
     }
 }
