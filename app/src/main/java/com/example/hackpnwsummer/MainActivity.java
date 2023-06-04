@@ -89,17 +89,17 @@ public class MainActivity extends AppCompatActivity {
         // flush
         gallon += amounts[0] * 1.6;
         // dish
-        gallon += amounts[1]  * 2.1;
+        gallon += amounts[1]  * 4;
         // wash
-        gallon += amounts[2]  * 2.2;
+        gallon += amounts[2]  * 15;
         // shower
-        gallon += amounts[3]  * 4;
+        gallon += amounts[3]  * 2.1;
         // sink
-        gallon += amounts[4]  * 15;
+        gallon += amounts[4]  * 2.2;
         // hose
         gallon += amounts[5]  * 12;
         // sprink
-        gallon += amounts[6]  * 4;
+        gallon += amounts[6]  * 3.5;
     }
 
 }
