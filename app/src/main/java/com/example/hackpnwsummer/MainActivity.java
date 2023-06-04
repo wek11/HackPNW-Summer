@@ -33,14 +33,17 @@ public class MainActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        load();
 
+        load();
+        initVal();
         waterProgressBar = findViewById(R.id.waterProgressBar);
         Button buttonGoal = findViewById(R.id.setGoalButton);
         Button activityButton = findViewById(R.id.activityButton);
         Button listButton = findViewById(R.id.activityButton2);
-        gallonOverGoal = findViewById(R.id.goalTextView);
-        initVal();
+        if(gallonOverGoal == null) {
+            gallonOverGoal = findViewById(R.id.goalTextView);
+        }
+
         calculateTotal();
         gallonOverGoal.setText(gallon + " / " + goal + " Gallons");
         TextView moneySaved = findViewById(R.id.moneySaved);
@@ -73,7 +76,8 @@ public class MainActivity extends AppCompatActivity {
         ImageView image = findViewById(R.id.settingImage);
         image.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-
+                Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
+                startActivity(intent);
             }
         } );
         buttonGoal.setOnClickListener(new View.OnClickListener(){
@@ -119,7 +123,7 @@ public class MainActivity extends AppCompatActivity {
         gallon += amounts[5]  * gallonPer[5];
         // sprink
         gallon += amounts[6]  * gallonPer[6];
-        gallon = Double.parseDouble((gallon + "").substring(0, 3));
+
     }
     // Saves the values inputed by the user
     public void save() {
@@ -155,25 +159,25 @@ public class MainActivity extends AppCompatActivity {
     // converts values inputed by the user to amount of gallons
     public void initVal(){
         // flush
-        if(gallonPer[0] != 0.0) {
+        if(gallonPer[0] == 0.0) {
             gallonPer[0] = 1.6;
         // dish
-        } else if(gallonPer[1] != 0.0) {
+        } else if(gallonPer[1] == 0.0) {
             gallonPer[1] = 4.0;
         // wash
-        } else if(gallonPer[2] != 0.0) {
+        } else if(gallonPer[2] == 0.0) {
             gallonPer[2] = 15.0;
         // shower
-        } else if(gallonPer[3] != 0.0){
+        } else if(gallonPer[3] == 0.0){
             gallonPer[3] = 2.1;
         // sink
-        } else if(gallonPer[4] != 0.0){
+        } else if(gallonPer[4] == 0.0){
             gallonPer[4] = 2.2;
         // hose
-        } else if(gallonPer[5] != 0.0){
+        } else if(gallonPer[5] == 0.0){
             gallonPer[5] = 12.0;
         // sprink
-        } else if(gallonPer[6] != 0.0){
+        } else if(gallonPer[6] == 0.0){
             gallonPer[6] = 3.5;
         }
     }
