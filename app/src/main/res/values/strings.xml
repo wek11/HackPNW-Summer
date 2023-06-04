@@ -4,6 +4,7 @@
     <string name="list">List of \n Activities</string>
     <string name="saveGoal">Set Goal</string>
     <string name="title_activity_settings">SettingsActivity</string>
+    <string name="setting">Settings</string>
 
     <!-- Preference Titles -->
     <string name="messages_header">Messages</string>

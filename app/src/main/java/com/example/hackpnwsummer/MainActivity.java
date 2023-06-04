@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
 
     // [flush, dish, wash, shower, sink, hose, sprink]
     static double[] amounts = new double[7];
+    static double[] gallonPer = new double[7];
 
     static ProgressBar waterProgressBar;
     static TextView gallonOverGoal;
@@ -35,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         Button activityButton = findViewById(R.id.activityButton);
         Button listButton = findViewById(R.id.activityButton2);
         gallonOverGoal = findViewById(R.id.goalTextView);
-        Toast.makeText(this, progress + "", Toast.LENGTH_SHORT);
+        calculateTotal();
         gallonOverGoal.setText(gallon + " / " + goal + " Gallons");
         TextView moneySaved = findViewById(R.id.moneySaved);
         double moneySavedNum = ((gallon*30.0/748)*22);
@@ -75,10 +76,10 @@ public class MainActivity extends AppCompatActivity {
     public void goalClick(View v){
         try {
             EditText setGoal = findViewById(R.id.goalEditText);
-            MainActivity.goal = Integer.parseInt(setGoal.getText().toString());
-            TextView goal = findViewById(R.id.goalTextView);
+            goal = Integer.parseInt(setGoal.getText().toString());
 
-            goal.setText(this.gallon + " / " + setGoal.getText().toString() + " gallons");
+
+            gallonOverGoal.setText(this.gallon + " / " + setGoal.getText().toString() + " gallons");
 
         } catch(NumberFormatException e) {
             Toast.makeText(this, "Invalid Goal", Toast.LENGTH_SHORT).show();
