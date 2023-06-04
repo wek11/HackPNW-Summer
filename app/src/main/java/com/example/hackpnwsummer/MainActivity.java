@@ -47,8 +47,6 @@ public class MainActivity extends AppCompatActivity {
                     MainActivity.progress = (int)(MainActivity.gallon / ((double)MainActivity.goal) * 100);
                     MainActivity.waterProgressBar.setProgress(progress);
 
-                    double moneySavedNum = ((100.0*30/748)*22) - ((gallon*30.0/748)*22);
-                    String moneySavedString = moneySavedNum + "";
                     try {
                         Thread.sleep(5000);
                     } catch (InterruptedException e){
