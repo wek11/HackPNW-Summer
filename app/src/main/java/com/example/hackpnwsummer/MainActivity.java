@@ -3,6 +3,7 @@ package com.example.hackpnwsummer;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -11,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.content.Context;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -24,13 +26,14 @@ public class MainActivity extends AppCompatActivity {
 
     static ProgressBar waterProgressBar;
     static TextView gallonOverGoal;
+    static SharedPreferences sp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        load();
         waterProgressBar = findViewById(R.id.waterProgressBar);
         Button buttonGoal = findViewById(R.id.setGoalButton);
         Button activityButton = findViewById(R.id.activityButton);
@@ -72,19 +75,23 @@ public class MainActivity extends AppCompatActivity {
 
             }
         } );
+        buttonGoal.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v) {
+                try {
+                    EditText setGoal = findViewById(R.id.goalEditText);
+
+                    goal = Integer.parseInt(setGoal.getText().toString());
+
+
+                    gallonOverGoal.setText(MainActivity.gallon + " / " + MainActivity.goal + " Gallons");
+
+                } catch (NumberFormatException e) {
+                    Toast.makeText(MainActivity.this, "Invalid Goal", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
-    public void goalClick(View v){
-        try {
-            EditText setGoal = findViewById(R.id.goalEditText);
-            goal = Integer.parseInt(setGoal.getText().toString());
 
-
-            gallonOverGoal.setText(this.gallon + " / " + setGoal.getText().toString() + " gallons");
-
-        } catch(NumberFormatException e) {
-            Toast.makeText(this, "Invalid Goal", Toast.LENGTH_SHORT).show();
-        }
-    }
 
     public static void calculateTotal() {
         gallon = 0;
@@ -103,6 +110,37 @@ public class MainActivity extends AppCompatActivity {
         // sprink
         gallon += amounts[6]  * 4;
         gallon = Double.parseDouble((gallon + "").substring(0, 3));
+    }
+    public void save() {
+        sp = getSharedPreferences("UserData", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sp.edit();
+        editor.putString("flush", Double.toString(amounts[0]));
+        editor.putString("dish", Double.toString(amounts[1]));
+        editor.putString("wash", Double.toString(amounts[2]));
+        editor.putString("shower", Double.toString(amounts[3]));
+        editor.putString("sink", Double.toString(amounts[4]));
+        editor.putString("hose", Double.toString(amounts[5]));
+        editor.putString("sprink", Double.toString(amounts[6]));
+        editor.putInt("goal", goal);
+        editor.commit();
+    }
+
+    public void load() {
+        sp = getSharedPreferences("UserData", Context.MODE_PRIVATE);
+        amounts[0] = Double.parseDouble(sp.getString("flush", "0"));
+        amounts[1] = Double.parseDouble(sp.getString("dish", "0"));
+        amounts[2] = Double.parseDouble(sp.getString("wash", "0"));
+        amounts[3] = Double.parseDouble(sp.getString("shower", "0"));
+        amounts[4] = Double.parseDouble(sp.getString("sink", "0"));
+        amounts[5] = Double.parseDouble(sp.getString("hose", "0"));
+        amounts[6] = Double.parseDouble(sp.getString("sprink", "0"));
+        goal = sp.getInt("goal", 100);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        save();
     }
 
 }
