@@ -7,11 +7,81 @@
     tools:context=".ListActivity"
     android:background="@color/blue">
 
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        app:layout_constraintBottom_toBottomOf="@+id/dishwasherLoads"
+        app:layout_constraintEnd_toStartOf="@+id/dishwasherLoads"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/dishwasherLoads"
+        app:srcCompat="@drawable/dishwasher" />
+
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        app:layout_constraintBottom_toBottomOf="@+id/timeSprinklerWasOn"
+        app:layout_constraintEnd_toStartOf="@+id/timeSprinklerWasOn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/timeSprinklerWasOn"
+        app:srcCompat="@drawable/sprinkler" />
+
+    <ImageView
+        android:id="@+id/imageView10"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        app:layout_constraintBottom_toBottomOf="@+id/timeGardenHoseWasOn"
+        app:layout_constraintEnd_toStartOf="@+id/timeGardenHoseWasOn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/timeGardenHoseWasOn"
+        app:srcCompat="@drawable/gardenhose" />
+
+    <ImageView
+        android:id="@+id/imageView11"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        app:layout_constraintBottom_toBottomOf="@+id/toiletFlushes"
+        app:layout_constraintEnd_toStartOf="@+id/toiletFlushes"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/toiletFlushes"
+        app:srcCompat="@drawable/toilet" />
+
+    <ImageView
+        android:id="@+id/imageView12"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        app:layout_constraintBottom_toBottomOf="@+id/timeInShower"
+        app:layout_constraintEnd_toStartOf="@+id/timeInShower"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/timeInShower"
+        app:srcCompat="@drawable/showerhead" />
+
+    <ImageView
+        android:id="@+id/imageView13"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        app:layout_constraintBottom_toBottomOf="@+id/timeFaucetWasOn"
+        app:layout_constraintEnd_toStartOf="@+id/timeFaucetWasOn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/timeFaucetWasOn"
+        app:srcCompat="@drawable/sink" />
+
+    <ImageView
+        android:id="@+id/imageView14"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        app:layout_constraintBottom_toBottomOf="@+id/washingMachineLoads"
+        app:layout_constraintEnd_toStartOf="@+id/washingMachineLoads"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/washingMachineLoads"
+        app:srcCompat="@drawable/washingmachine" />
+
     <TextView
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="35dp"
         android:text="Gallons of Used By"
         android:textAlignment="center"
         android:textSize="45dp"
@@ -25,8 +95,8 @@
     <TextView
         android:id="@+id/toiletFlushes"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="35dp"
         android:text="Toilet flushes"
         android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -37,8 +107,8 @@
     <TextView
         android:id="@+id/dishwasherLoads"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="35dp"
         android:text="Dishwasher loads"
         android:textSize="20dp"
         app:layout_constraintBottom_toTopOf="@+id/timeInShower"
@@ -49,9 +119,9 @@
     <TextView
         android:id="@+id/washingMachineLoads"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
 
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="35dp"
         android:text="Washing machine loads"
         android:textSize="20dp"
         app:layout_constraintBottom_toTopOf="@+id/timeFaucetWasOn"
@@ -63,8 +133,8 @@
     <TextView
         android:id="@+id/timeInShower"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="35dp"
         android:text="Time in shower"
         android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -74,8 +144,8 @@
     <TextView
         android:id="@+id/timeFaucetWasOn"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="35dp"
         android:text="Time faucet was on"
         android:textSize="20dp"
         app:layout_constraintBottom_toTopOf="@+id/timeGardenHoseWasOn"
@@ -87,8 +157,8 @@
     <TextView
         android:id="@+id/timeGardenHoseWasOn"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="35dp"
         android:text="Time garden hose was on"
         android:textSize="20dp"
         app:layout_constraintBottom_toTopOf="@+id/timeSprinklerWasOn"
@@ -100,8 +170,8 @@
     <TextView
         android:id="@+id/timeSprinklerWasOn"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="35dp"
         android:text="Time sprinkler was on"
         android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -111,10 +181,14 @@
     <Button
         android:id="@+id/backButton2"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:layout_marginEnd="336dp"
         android:layout_marginBottom="4dp"
         android:text="Back"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
