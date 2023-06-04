@@ -37,26 +37,22 @@ public class MainActivity extends AppCompatActivity {
         gallonOverGoal = findViewById(R.id.goalTextView);
         Toast.makeText(this, progress + "", Toast.LENGTH_SHORT);
         gallonOverGoal.setText(gallon + " / " + goal + " Gallons");
+        TextView moneySaved = findViewById(R.id.moneySaved);
+        double moneySavedNum = ((gallon*30.0/748)*22);
+        String moneySavedString = moneySavedNum + "";
+        moneySaved.setText("Money Spent: $" + moneySavedString);
+        for (int i = 0; i < moneySavedString.length(); i++) {
+            if (i > 4) {
+                moneySaved.setText("Money Spent: $" + moneySavedString.substring(0, 4));
+                break;
+            }
+        }
+        MainActivity.calculateTotal();
+        System.out.println(progress);
+        MainActivity.progress = (int)(MainActivity.gallon / ((double)MainActivity.goal) * 100);
+        MainActivity.waterProgressBar.setProgress(progress);
         // This thread constantly updates the progress bar and money saved as gallons of water used
         // increases, updating every 5 seconds to save resources while also maintaining up to date info
-        Thread thread = new Thread(new Runnable(){
-            public void run(){
-                TextView moneySaved = findViewById(R.id.moneySaved);
-                while(true){
-                    MainActivity.calculateTotal();
-                    System.out.println(progress);
-                    MainActivity.progress = (int)(MainActivity.gallon / ((double)MainActivity.goal) * 100);
-                    MainActivity.waterProgressBar.setProgress(progress);
-
-                    try {
-                        Thread.sleep(5000);
-                    } catch (InterruptedException e){
-                        e.printStackTrace();
-                    }
-                }
-            }
-        });
-        thread.start();
         activityButton.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                 Intent intent = new Intent(MainActivity.this, AddWaterActivity2.class);
@@ -94,17 +90,18 @@ public class MainActivity extends AppCompatActivity {
         // flush
         gallon += amounts[0] * 1.6;
         // dish
-        gallon += amounts[1]  * 4;
+        gallon += amounts[1]  * 2.1;
         // wash
-        gallon += amounts[2]  * 15;
+        gallon += amounts[2]  * 2.2;
         // shower
-        gallon += amounts[3]  * 2.1;
+        gallon += amounts[3]  * 4;
         // sink
-        gallon += amounts[4]  * 2.2;
+        gallon += amounts[4]  * 15;
         // hose
         gallon += amounts[5]  * 12;
         // sprink
-        gallon += amounts[6]  * 3.5;
+        gallon += amounts[6]  * 4;
+        gallon = Double.parseDouble((gallon + "").substring(0, 3));
     }
 
 }
