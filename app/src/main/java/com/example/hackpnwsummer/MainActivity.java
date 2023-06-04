@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
 
     // [flush, dish, wash, shower, sink, hose, sprink]
     static double[] amounts = new double[7];
-    static Double[] gallonPer = new Double[7];
+    static double[] gallonPer = new double[7];
 
     static ProgressBar waterProgressBar;
     static TextView gallonOverGoal;
@@ -34,11 +34,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         load();
+
         waterProgressBar = findViewById(R.id.waterProgressBar);
         Button buttonGoal = findViewById(R.id.setGoalButton);
         Button activityButton = findViewById(R.id.activityButton);
         Button listButton = findViewById(R.id.activityButton2);
         gallonOverGoal = findViewById(R.id.goalTextView);
+        initVal();
         calculateTotal();
         gallonOverGoal.setText(gallon + " / " + goal + " Gallons");
         TextView moneySaved = findViewById(R.id.moneySaved);
@@ -97,19 +99,19 @@ public class MainActivity extends AppCompatActivity {
     public static void calculateTotal() {
         gallon = 0;
         // flush
-        gallon += amounts[0] * 1.6;
+        gallon += amounts[0] * gallonPer[0];
         // dish
-        gallon += amounts[1]  * 2.1;
+        gallon += amounts[1]  * gallonPer[1];
         // wash
-        gallon += amounts[2]  * 2.2;
+        gallon += amounts[2]  * gallonPer[2];
         // shower
-        gallon += amounts[3]  * 4;
+        gallon += amounts[3]  * gallonPer[3];
         // sink
-        gallon += amounts[4]  * 15;
+        gallon += amounts[4]  * gallonPer[4];
         // hose
-        gallon += amounts[5]  * 12;
+        gallon += amounts[5]  * gallonPer[5];
         // sprink
-        gallon += amounts[6]  * 4;
+        gallon += amounts[6]  * gallonPer[6];
         gallon = Double.parseDouble((gallon + "").substring(0, 3));
     }
     public void save() {
@@ -144,6 +146,23 @@ public class MainActivity extends AppCompatActivity {
         save();
     }
 
+    public void initVal(){
+        if(gallonPer[0] != 0.0) {
+            gallonPer[0] = 1.6;
+        } else if(gallonPer[1] != 0.0) {
+            gallonPer[1] = 4.0;
+        } else if(gallonPer[2] != 0.0) {
+            gallonPer[2] = 15.0;
+        } else if(gallonPer[3] != 0.0){
+            gallonPer[3] = 2.1;
+        } else if(gallonPer[4] != 0.0){
+            gallonPer[4] = 2.2;
+        } else if(gallonPer[5] != 0.0){
+            gallonPer[5] = 12.0;
+        } else if(gallonPer[6] != 0.0){
+            gallonPer[6] = 3.5;
+        }
+    }
 
 }
 
