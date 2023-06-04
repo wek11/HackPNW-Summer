@@ -6,4 +6,11 @@
     android:layout_height="match_parent"
     tools:context=".TipsActivity">
 
+    <Button
+        android:id="@+id/donateButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Donate!"
+        tools:layout_editor_absoluteX="159dp"
+        tools:layout_editor_absoluteY="614dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

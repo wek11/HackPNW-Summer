@@ -59,8 +59,8 @@ public class MainActivity extends AppCompatActivity {
         thread.start();
         activityButton.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                    Intent intent = new Intent(MainActivity.this, AddWaterActivity2.class);
-                    startActivity(intent);
+                Intent intent = new Intent(MainActivity.this, AddWaterActivity2.class);
+                startActivity(intent);
             }
         });
         listButton.setOnClickListener(new View.OnClickListener(){
@@ -70,7 +70,11 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         ImageView image = findViewById(R.id.settingImage);
-        image.setOnClickListener(new );
+        image.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+
+            }
+        } );
     }
     public void goalClick(View v){
         try {
@@ -104,3 +108,5 @@ public class MainActivity extends AppCompatActivity {
     }
 
 }
+
+
