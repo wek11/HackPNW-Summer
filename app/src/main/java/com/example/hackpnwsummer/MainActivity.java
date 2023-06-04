@@ -93,6 +93,14 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+        TextView learnMore = findViewById(R.id.LearnMore);
+        learnMore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, TipsActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
 

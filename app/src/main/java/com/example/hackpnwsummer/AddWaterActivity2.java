@@ -2,7 +2,9 @@ package com.example.hackpnwsummer;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -65,12 +67,12 @@ public class AddWaterActivity2 extends AppCompatActivity {
                 for (int i = 0; i < MainActivity.amounts.length; i++) {
                     MainActivity.amounts[i] = Double.parseDouble(texts.get(i).getText().toString());
                 }
-
+                save();
             }
 
         });
     }
-    public void setValue(){
+    public void setValue() {
         EditText flushes = findViewById(R.id.toiletFlushAmt);
         EditText dishwasher = findViewById(R.id.dishwasherAmt);
         EditText washingMachine = findViewById(R.id.washingMachineLoads);
@@ -87,10 +89,28 @@ public class AddWaterActivity2 extends AppCompatActivity {
         texts.add(faucet);
         texts.add(hose);
         texts.add(sprinkler);
-        for(int i = 0; i < texts.size(); i++){
-            if(MainActivity.amounts[i] != 0){
+        for (int i = 0; i < texts.size(); i++) {
+            if (MainActivity.amounts[i] != 0) {
                 texts.get(i).setHint(texts.get(i).getHint().toString() + ": " + MainActivity.amounts[i] + "gallons");
             }
+
         }
     }
+    public void save() {
+        MainActivity.sp = getSharedPreferences("UserData", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = MainActivity.sp.edit();
+        editor.putString("flush", Double.toString(MainActivity.amounts[0]));
+        editor.putString("dish", Double.toString(MainActivity.amounts[1]));
+        editor.putString("wash", Double.toString(MainActivity.amounts[2]));
+        editor.putString("shower", Double.toString(MainActivity.amounts[3]));
+        editor.putString("sink", Double.toString(MainActivity.amounts[4]));
+        editor.putString("hose", Double.toString(MainActivity.amounts[5]));
+        editor.putString("sprink", Double.toString(MainActivity.amounts[6]));
+        editor.putInt("goal", MainActivity.goal);
+        editor.commit();
+    }
 }
+
+
+
+

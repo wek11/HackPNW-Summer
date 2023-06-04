@@ -35,5 +35,13 @@ public class TipsActivity extends AppCompatActivity {
                 startActivity(viewIntent);
             }
         });
+        Button backButton = findViewById(R.id.bootyCheeks);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(TipsActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }
