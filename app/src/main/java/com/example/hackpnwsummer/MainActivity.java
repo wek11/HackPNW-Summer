@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         gallonOverGoal = findViewById(R.id.goalTextView);
         initVal();
         calculateTotal();
-        gallonOverGoal.setText(gallon + " / " + goal + " Gallons");
+        System.out.println(gallon);
         TextView moneySaved = findViewById(R.id.moneySaved);
         double moneySavedNum = ((gallon*30.0/748)*22);
         String moneySavedString = moneySavedNum + "";
@@ -59,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
         MainActivity.waterProgressBar.setProgress(progress);
         // This thread constantly updates the progress bar and money saved as gallons of water used
         // increases, updating every 5 seconds to save resources while also maintaining up to date info
+        gallonOverGoal.setText(gallon + " / " + goal + " Gallons");
         activityButton.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                 Intent intent = new Intent(MainActivity.this, AddWaterActivity2.class);
@@ -101,6 +102,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        Toast.makeText(this, gallon + "", Toast.LENGTH_SHORT);
     }
 
 
