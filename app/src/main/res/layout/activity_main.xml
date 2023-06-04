@@ -45,7 +45,7 @@
         app:layout_constraintBottom_toTopOf="@+id/waterProgressBar"
         app:layout_constraintEnd_toEndOf="@+id/goalTextView"
         app:layout_constraintStart_toStartOf="@+id/goalTextView"
-        android:onClick="goalClick"
+
         />
 
 

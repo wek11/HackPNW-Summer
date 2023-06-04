@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
         thread.start();
         activityButton.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                    Intent intent = new Intent(MainActivity.this, AddWaterActivity.class);
+                    Intent intent = new Intent(MainActivity.this, AddWaterActivity2.class);
                     startActivity(intent);
             }
         });
@@ -76,10 +76,15 @@ public class MainActivity extends AppCompatActivity {
         gallon += amounts[0] * 1.6;
         // dish
         gallon += amounts[1]  * 2.1;
+        // wash
         gallon += amounts[2]  * 2.2;
+        // shower
         gallon += amounts[3]  * 4;
+        // sink
         gallon += amounts[4]  * 15;
+        // hose
         gallon += amounts[5]  * 12;
+        // sprink
         gallon += amounts[6]  * 4;
     }
 
