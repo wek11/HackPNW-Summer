@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">HackPNW Summer</string>
+    <string name="activity">Add a New\n Activity</string>
+    <string name="list">List of \n Activities</string>
+    <string name="saveGoal">Set Goal</string>
 </resources>

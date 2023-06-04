@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:paddingHorizontal="50dp"
         android:scaleY = "6"
-        android:progress="50"
+        android:progress="0"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -28,9 +28,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="128dp"
-        android:text="Goal: 100 Gallons"
-        android:textSize="30sp"
+        android:fontFamily="monospace"
+        android:text="0.0 / 100 Gallons"
         android:textColor="@color/black"
+        android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@+id/waterProgressBar"
         app:layout_constraintEnd_toEndOf="@+id/waterProgressBar"
         app:layout_constraintStart_toStartOf="@+id/waterProgressBar" />
@@ -59,5 +60,46 @@
         app:layout_constraintEnd_toEndOf="@+id/setGoalButton"
         app:layout_constraintStart_toStartOf="@+id/setGoalButton"
         app:layout_constraintTop_toBottomOf="@+id/goalTextView" />
+
+    <Button
+        android:id="@+id/activityButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginBottom="248dp"
+        android:text="@string/activity"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/waterProgressBar"
+        app:layout_constraintVertical_bias="1.0"
+        />
+
+    <Button
+        android:id="@+id/activityButton2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="248dp"
+        android:text="@string/list"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.369"
+        app:layout_constraintStart_toEndOf="@+id/activityButton" />
+
+    <TextView
+        android:id="@+id/moneySaved"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="132dp"
+        android:text="Money Saved: \n$0"
+        android:textAlignment="center"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toTopOf="@+id/activityButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -2,6 +2,7 @@ package com.example.hackpnwsummer;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -29,12 +30,18 @@ public class MainActivity extends AppCompatActivity {
 
         waterProgressBar = findViewById(R.id.waterProgressBar);
         Button buttonGoal = findViewById(R.id.setGoalButton);
+        Button activityButton = findViewById(R.id.activityButton);
+        Button listButton = findViewById(R.id.activityButton2);
+        // This thread constantly updates the progress bar and money saved as gallons of water used
+        // increases, updating every 5 seconds to save resources while also maintaining up to date info
         Thread thread = new Thread(new Runnable(){
             public void run(){
-                while(gallon<=goal){
+                TextView moneySaved = findViewById(R.id.moneySaved);
+                while(true){
                     MainActivity.progress = (int)(MainActivity.gallon / ((double)MainActivity.goal) * 100);
                     MainActivity.waterProgressBar.setProgress(progress);
-
+                    double moneySavedNum = ((100.0*30/748)*22) - ((gallon*30.0/748)*22);
+                    String moneySavedString = moneySavedNum + "";
                     try {
                         Thread.sleep(5000);
                     } catch (InterruptedException e){
@@ -44,6 +51,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         thread.start();
+        activityButton.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                    Intent intent = new Intent(MainActivity.this, AddWaterActivity.class);
+                    startActivity(intent);
+            }
+        });
     }
     public void goalClick(View v){
         try {
@@ -51,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
             MainActivity.goal = Integer.parseInt(setGoal.getText().toString());
             TextView goal = findViewById(R.id.goalTextView);
 
-            goal.setText("Goal: " + setGoal.getText().toString() + " gallons");
+            goal.setText(this.gallon + " / " + setGoal.getText().toString() + " gallons");
 
         } catch(NumberFormatException e) {
             Toast.makeText(this, "Invalid Goal", Toast.LENGTH_SHORT).show();
@@ -59,7 +72,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void calculateTotal() {
+        // flush
         gallon += amounts[0] * 1.6;
+        // dish
         gallon += amounts[1]  * 2.1;
         gallon += amounts[2]  * 2.2;
         gallon += amounts[3]  * 4;
